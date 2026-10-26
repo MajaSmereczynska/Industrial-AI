@@ -145,6 +145,10 @@ Diese Kennzahlen sind die **Merkmale (Features)**. Später (Session 3–4) vergl
 - **Falsch benannte Ordner:** Ordnername passt nicht zum Gerät in den Metadaten.
 - **Geräteprüfung:** ob immer dasselbe Fairphone und iPhone verwendet wurden.
 
+`00_Zeitablauf.ipynb` liest dieselben Metadaten und zeigt **Start- und Endzeiten** aller Versuche auf einer Zeitachse, fasst gleichzeitige Fairphone-/iPhone-Messungen zu Durchgängen zusammen und listet die **Pausen** zwischen Versuchen und Wiederholungen. Lange Pausen zeigen, wo ein Umbau der Maschine (Zustandswechsel) möglich war.
+
+`00_Vergleich_Uebersicht.ipynb` zeigt **Abb. 1, 2 und 3 aller zehn Versuche untereinander** (Übersicht, Spektrum, Vibrationshüllkurve), je eine Abbildung für Fairphone und iPhone, dazu eine Tabelle mit der Stärke der Frequenzlinien 45,5 / 86 / 121,6 Hz. Alle Zeilen einer Abbildung haben dieselben Achsen, und das Magnetfeld ist als Änderung seit Messbeginn (Δ|B|) dargestellt, damit man die Versuche direkt vergleichen kann.
+
 Wie die Handys *messen* (Rauschen, Lage, Abtastrate), steht in Abschnitt 02 jedes Versuchs-Notebooks.
 
 Wenn sich zwei Messungen unterscheiden, kann das drei Ursachen haben:
@@ -199,6 +203,8 @@ Außerdem gibt es einen ersten möglichen Anomalie-Kandidaten: In V06/FP_02 gibt
 |---|---|
 | `V01.ipynb` … `V10.ipynb` | Ein Notebook pro Versuch, Punkte 01–08 |
 | `00_Metadaten_Geraete.ipynb` | Einfacher Überblick über alle Messungen aus den Metadaten: Geräte, Startzeiten, Duplikate |
+| `00_Zeitablauf.ipynb` | Start-/Endzeiten, Durchgänge und Pausen zwischen den Versuchen, Zeitachse des Messtags |
+| `00_Vergleich_Uebersicht.ipynb` | Abb. 1–3 aller Versuche untereinander (je Gerät) + Tabelle der Frequenzlinien, gleiche Achsen zum direkten Vergleich |
 | `figures/` | Abbildungen als PNG: je Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Sprechtext für die Präsentation in Session 2 |
 | `README.md` / `README_EN.md` | Diese Erklärung auf Deutsch / Englisch |

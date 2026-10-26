@@ -147,6 +147,10 @@ These numbers are the **features**. Later (Sessions 3–4), an anomaly detector 
 - **Mislabelled folders:** the folder name doesn't match the device in the metadata.
 - **Device check:** whether the same Fairphone and iPhone were used every time.
 
+`00_Zeitablauf.ipynb` reads the same metadata and shows the **start and end times** of all Versuche on a timeline, groups simultaneous Fairphone/iPhone recordings into runs and lists the **breaks** between Versuche and repeats. Long breaks show where the machine could have been modified (state change).
+
+`00_Vergleich_Uebersicht.ipynb` shows **Figs. 1, 2 and 3 of all ten Versuche stacked** (overview, spectrum, vibration envelope), one figure each for Fairphone and iPhone, plus a table of the strength of the 45.5 / 86 / 121.6 Hz lines. All rows of a figure share the same axes, and the magnetic field is shown as the change since the start of the recording (Δ|B|), so the Versuche can be compared directly.
+
 How the phones *measure* (noise, orientation, sampling rate) is in section 02 of each Versuch notebook.
 
 When two recordings differ, there are three possible causes:
@@ -201,6 +205,8 @@ There is also a first possible anomaly candidate: in V06/FP_02 there is a cluste
 |---|---|
 | `V01.ipynb` … `V10.ipynb` | One notebook per Versuch, points 01–08 |
 | `00_Metadaten_Geraete.ipynb` | Simple overview of all recordings from the metadata: devices, start times, duplicates |
+| `00_Zeitablauf.ipynb` | Start/end times, runs and breaks between the Versuche, timeline of the measurement day |
+| `00_Vergleich_Uebersicht.ipynb` | Figs. 1–3 of all Versuche stacked (per device) + table of frequency lines, same axes for direct comparison |
 | `figures/` | Figures as PNG: per Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Speaking script (German) for the Session 2 presentation |
 | `README.md` | This explanation in German |
