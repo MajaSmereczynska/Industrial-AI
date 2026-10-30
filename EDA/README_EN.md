@@ -91,7 +91,7 @@ There is **one notebook per Versuch** (`V01.ipynb` … `V10.ipynb`). Each stands
 
 | Function | What it does |
 |---|---|
-| `load()`, `load_versuch()` | Reads all recordings of a Versuch and unifies both phones' column names to `t, x, y, z`. Duplicate folders are skipped. |
+| `load()`, `load_versuch()` | Reads all recordings of a Versuch and unifies both phones' column names to `t, x, y, z`. Duplicate folders would be skipped (safety check; the known duplicates were deleted from the raw data). |
 | `drive_phases()` | Detects when the carriage is moving (see below) |
 | `impulses()` | Finds jerks above 2 m/s² (starting and braking) |
 | `spectrum_drive()` | Frequency spectrum during steady travel, without the jerks at the edges |
@@ -143,7 +143,7 @@ These numbers are the **features**. Later (Sessions 3–4), an anomaly detector 
 `00_Metadaten_Geraete.ipynb` is a **simple overview of all Versuche**. It reads only the metadata (`meta/device.csv`, `meta/time.csv`), no sensor data:
 
 - **Table of all recording folders:** device, start time, duration, pauses.
-- **Duplicates:** same phone and same start time to the millisecond, i.e. the same recording saved twice.
+- **Duplicates:** same phone and same start time to the millisecond, i.e. the same recording saved twice. The 5 duplicates found have since been deleted from the raw data (see `01_Bereinigung.ipynb`), so the check finds none.
 - **Mislabelled folders:** the folder name doesn't match the device in the metadata.
 - **Device check:** whether the same Fairphone and iPhone were used every time.
 
@@ -204,9 +204,11 @@ There is also a first possible anomaly candidate: in V06/FP_02 there is a cluste
 | File / folder | Contents |
 |---|---|
 | `V01.ipynb` … `V10.ipynb` | One notebook per Versuch, points 01–08 |
-| `00_Metadaten_Geraete.ipynb` | Simple overview of all recordings from the metadata: devices, start times, duplicates |
+| `00_Metadaten_Geraete.ipynb` | Simple overview of all recordings from the metadata: devices, start times, duplicate check |
 | `00_Zeitablauf.ipynb` | Start/end times, runs and breaks between the Versuche, timeline of the measurement day |
 | `00_Vergleich_Uebersicht.ipynb` | Figs. 1–3 of all Versuche stacked (per device) + table of frequency lines, same axes for direct comparison |
+| `01_Bereinigung.ipynb` | Cleaning of acceleration and magnetic field: duplicates, time base, pauses → segments, invalid stretches (handling, moved phone); writes `clean/` |
+| `clean/` | Cleaned data (`acc.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), created by `01_Bereinigung.ipynb`, not in git |
 | `figures/` | Figures as PNG: per Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Speaking script (German) for the Session 2 presentation |
 | `README.md` | This explanation in German |

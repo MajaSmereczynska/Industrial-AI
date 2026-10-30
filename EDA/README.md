@@ -89,7 +89,7 @@ Es gibt **ein Notebook pro Versuch** (`V01.ipynb` … `V10.ipynb`). Jedes steht 
 
 | Funktion | Was sie macht |
 |---|---|
-| `load()`, `load_versuch()` | Liest alle Messungen eines Versuchs ein und vereinheitlicht die Spaltennamen beider Handys auf `t, x, y, z`. Doppelte Ordner werden übersprungen. |
+| `load()`, `load_versuch()` | Liest alle Messungen eines Versuchs ein und vereinheitlicht die Spaltennamen beider Handys auf `t, x, y, z`. Doppelte Ordner würden übersprungen (Sicherheitsprüfung; die bekannten Duplikate sind aus den Rohdaten gelöscht). |
 | `drive_phases()` | Erkennt, wann der Schlitten fährt (siehe unten) |
 | `impulses()` | Findet Rucke über 2 m/s² (Anfahren und Bremsen) |
 | `spectrum_drive()` | Frequenzspektrum während der gleichmäßigen Fahrt, ohne die Rucke an den Rändern |
@@ -141,7 +141,7 @@ Diese Kennzahlen sind die **Merkmale (Features)**. Später (Session 3–4) vergl
 `00_Metadaten_Geraete.ipynb` ist ein **einfacher Überblick über alle Versuche**. Es liest nur die Metadaten (`meta/device.csv`, `meta/time.csv`), keine Sensordaten:
 
 - **Tabelle aller Messordner:** Gerät, Startzeit, Dauer, Pausen.
-- **Duplikate:** gleiches Handy und gleiche Startzeit auf die Millisekunde, also dieselbe Aufnahme zweimal gespeichert.
+- **Duplikate:** gleiches Handy und gleiche Startzeit auf die Millisekunde, also dieselbe Aufnahme zweimal gespeichert. Die 5 gefundenen Duplikate wurden inzwischen aus den Rohdaten gelöscht (siehe `01_Bereinigung.ipynb`), die Prüfung findet daher keine mehr.
 - **Falsch benannte Ordner:** Ordnername passt nicht zum Gerät in den Metadaten.
 - **Geräteprüfung:** ob immer dasselbe Fairphone und iPhone verwendet wurden.
 
@@ -202,9 +202,11 @@ Außerdem gibt es einen ersten möglichen Anomalie-Kandidaten: In V06/FP_02 gibt
 | Datei / Ordner | Inhalt |
 |---|---|
 | `V01.ipynb` … `V10.ipynb` | Ein Notebook pro Versuch, Punkte 01–08 |
-| `00_Metadaten_Geraete.ipynb` | Einfacher Überblick über alle Messungen aus den Metadaten: Geräte, Startzeiten, Duplikate |
+| `00_Metadaten_Geraete.ipynb` | Einfacher Überblick über alle Messungen aus den Metadaten: Geräte, Startzeiten, Duplikat-Prüfung |
 | `00_Zeitablauf.ipynb` | Start-/Endzeiten, Durchgänge und Pausen zwischen den Versuchen, Zeitachse des Messtags |
 | `00_Vergleich_Uebersicht.ipynb` | Abb. 1–3 aller Versuche untereinander (je Gerät) + Tabelle der Frequenzlinien, gleiche Achsen zum direkten Vergleich |
+| `01_Bereinigung.ipynb` | Bereinigung von Beschleunigung und Magnetfeld: Duplikate, Zeitachse, Pausen → Segmente, ungültige Abschnitte (Handhabung, verschobenes Handy); schreibt `clean/` |
+| `clean/` | Bereinigte Daten (`acc.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), von `01_Bereinigung.ipynb` erzeugt, nicht in git |
 | `figures/` | Abbildungen als PNG: je Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Sprechtext für die Präsentation in Session 2 |
 | `README.md` / `README_EN.md` | Diese Erklärung auf Deutsch / Englisch |
