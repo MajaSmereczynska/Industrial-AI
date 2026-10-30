@@ -205,8 +205,10 @@ Außerdem gibt es einen ersten möglichen Anomalie-Kandidaten: In V06/FP_02 gibt
 | `00_Metadaten_Geraete.ipynb` | Einfacher Überblick über alle Messungen aus den Metadaten: Geräte, Startzeiten, Duplikat-Prüfung |
 | `00_Zeitablauf.ipynb` | Start-/Endzeiten, Durchgänge und Pausen zwischen den Versuchen, Zeitachse des Messtags |
 | `00_Vergleich_Uebersicht.ipynb` | Abb. 1–3 aller Versuche untereinander (je Gerät) + Tabelle der Frequenzlinien, gleiche Achsen zum direkten Vergleich |
-| `01_Bereinigung.ipynb` | Bereinigung von Beschleunigung und Magnetfeld: Duplikate, Zeitachse, Pausen → Segmente, ungültige Abschnitte (Handhabung, verschobenes Handy); schreibt `clean/` |
-| `clean/` | Bereinigte Daten (`acc.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), von `01_Bereinigung.ipynb` erzeugt, nicht in git |
+| `01_Bereinigung.ipynb` | Bereinigung von Beschleunigung, Gyroskop und Magnetfeld: Duplikate, Zeitachse, Pausen → Segmente, ungültige Abschnitte (Handhabung, verschobenes Handy); schreibt `clean/` |
+| `clean/` | Bereinigte Daten (`acc.csv`, `gyro.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), von `01_Bereinigung.ipynb` erzeugt, nicht in git |
+| `02_Fenster_Features.ipynb` | Interaktiv: Versuche wählen, Beschleunigung und Magnetfeld ansehen, Bereiche und Fenster (Länge/Überlappung) einstellen → tsfresh-Features, Ranking (zwischen vs. innerhalb der Versuche), Cluster-Vorschau für die Zustände |
+| `runs_log.csv` | Protokoll aller Läufe aus `02_Fenster_Features.ipynb` (Einstellungen, Trennschärfe, Cluster-Zuordnung) |
 | `figures/` | Abbildungen als PNG: je Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Sprechtext für die Präsentation in Session 2 |
 | `README.md` / `README_EN.md` | Diese Erklärung auf Deutsch / Englisch |
