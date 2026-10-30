@@ -209,6 +209,7 @@ Außerdem gibt es einen ersten möglichen Anomalie-Kandidaten: In V06/FP_02 gibt
 | `clean/` | Bereinigte Daten (`acc.csv`, `gyro.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), von `01_Bereinigung.ipynb` erzeugt, nicht in git |
 | `02_Fenster_Features.ipynb` | Interaktiv: Versuche wählen, Beschleunigung und Magnetfeld ansehen, Bereiche und Fenster (Länge/Überlappung) einstellen → tsfresh-Features, Ranking (zwischen vs. innerhalb der Versuche), Cluster-Vorschau für die Zustände |
 | `runs_log.csv` | Protokoll aller Läufe aus `02_Fenster_Features.ipynb` (Einstellungen, Trennschärfe, Cluster-Zuordnung) |
+| `features/` | Featurematrix jedes Laufs aus `02_Fenster_Features.ipynb` (komprimiertes CSV: ID-Spalten, `zustand_bekannt`, Features; Dateiname aus Zeit und Einstellungen), nicht in git |
 | `figures/` | Abbildungen als PNG: je Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Sprechtext für die Präsentation in Session 2 |
 | `README.md` / `README_EN.md` | Diese Erklärung auf Deutsch / Englisch |

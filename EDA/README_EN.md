@@ -211,6 +211,7 @@ There is also a first possible anomaly candidate: in V06/FP_02 there is a cluste
 | `clean/` | Cleaned data (`acc.csv`, `gyro.csv`, `mag.csv`, `aufnahmen.csv`, `log.csv`), created by `01_Bereinigung.ipynb`, not in git |
 | `02_Fenster_Features.ipynb` | Interactive: choose Versuche, view acceleration and magnetic field, set ranges and windows (length/overlap) → tsfresh features, ranking (between vs. within Versuche), cluster preview for the states |
 | `runs_log.csv` | Log of all runs from `02_Fenster_Features.ipynb` (settings, separation, cluster assignment) |
+| `features/` | Feature matrix of every run of `02_Fenster_Features.ipynb` (compressed CSV: ID columns, `zustand_bekannt`, features; file name from time and settings), not in git |
 | `figures/` | Figures as PNG: per Versuch `Vxx_1_uebersicht`, `Vxx_2_spektrum`, `Vxx_3_normalverhalten` |
 | `Vortrag_Session2.md` | Speaking script (German) for the Session 2 presentation |
 | `README.md` | This explanation in German |
